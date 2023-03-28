@@ -255,7 +255,7 @@ npx serve
 
 ### 3. 注册组件的补充说明
 
-```
+```html
 <div id="app"></div>
 
 <script type="module">
