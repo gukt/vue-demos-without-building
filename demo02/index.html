@@ -1,0 +1,32 @@
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<div id="app1">
+  {{ count }} <button @click="count++">+</button>
+</div>
+
+<div id="app2"></div>
+
+<template id="app2-template">
+  {{ count }} <button @click="count++">+</button>
+</template>
+
+<script>
+  Vue.createApp({
+    data() {
+      return {
+        count: 1
+      }
+    },
+    // template: '...' <- 当没有指定时，默认使用挂载点的 innerHTML 作为模板
+  }).mount('#app1')
+
+  // 同一页面允许存在多个 Vue 应用实例，每个实例拥有独立的作用域。
+  Vue.createApp({
+    data() {
+      return {
+        count: 2
+      }
+    },
+    template: '#app2-template'  // <- 通过选择器指定一个外部元素的内容作为模板
+  }).mount('#app2') 
+</script>

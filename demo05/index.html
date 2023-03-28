@@ -1,0 +1,33 @@
+<div id="app"></div>
+
+<script type="module">
+  import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+  import Counter from "./components/counter.js";
+
+  createApp({
+    // 通过 components 选项来注册局部组件。
+    components: {
+      Counter3: {
+        data() {
+          return { count: 3 };
+        },
+        template: `{{ count }} <button @click="count++">+</button>`,
+      },
+    },
+    // 这里使用的组件都要是注册过的，否则找不到会被忽略
+    // Counter4 就是一个未注册的组件，所以不会被渲染，但控制台会提示警告。
+    // [Vue warn]: Failed to resolve component: Counter4
+    template: `<Counter /> <Counter2 /> <Counter3 /> <Counter4 />`,
+  })
+    // 通过 app.component 注册的是全局组件
+    // https://cn.vuejs.org/api/application.html#app-component
+    .component("Counter", Counter)
+    // 也可以通过第二个参数传入一个组件配置对象来定义并注册组件。
+    .component("Counter2", {
+      data() {
+        return { count: 2 };
+      },
+      template: `{{ count }} <button @click="count++">+</button>`,
+    })
+    .mount("#app");
+</script>

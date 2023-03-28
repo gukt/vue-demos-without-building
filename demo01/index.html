@@ -1,0 +1,16 @@
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<div id="app"></div>
+
+<script>
+  Vue.createApp({
+    data() {
+      return {
+        count: 0,
+      };
+    },
+    template: `
+        {{ count }} <button @click="count++">+</button>
+      `,
+  }).mount("#app");
+</script>

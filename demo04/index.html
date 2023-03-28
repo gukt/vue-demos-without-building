@@ -1,0 +1,24 @@
+<!-- 
+  使用 Import Maps 来告诉浏览器如何定位导入的 vue。
+  https://cn.vuejs.org/guide/quick-start.html#enabling-import-maps
+-->
+<script type="importmap">
+  {
+    "imports": {
+      "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+    }
+  }
+</script>
+
+<div id="app"></div>
+
+<script type="module">
+  import { createApp } from 'vue'
+  // 在浏览器中的 ESM 模块中，指定导入的文件一定要带后缀名。
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
+  import Counter from './components/counter.js'
+
+  // 通过 createApp 创建一个 Vue 应用实例。
+  // 并指定根组件为 Counter 组件，然后挂载到 #app 元素上
+  createApp(Counter).mount('#app')
+</script>
