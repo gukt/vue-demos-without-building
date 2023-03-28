@@ -6,11 +6,9 @@
 
 Vue 也提供了另一个更适用于此类无构建步骤场景的版本 [petite-vue](https://github.com/vuejs/petite-vue)。它为渐进式增强已有的 HTML 作了特别的优化，功能更加精简，十分轻量。
 
-
-
 ## 引言
 
-本文演示了无需构建步骤的情况下，如何使用 Vue 对 HTML 的局部或多个局部进行增强。
+本文主要内容来自于对官网教程的实践和思路整理，演示了无需构建步骤的情况下，如何使用 Vue 对 HTML 的局部或多个局部进行增强。
 
 因为我们不用任何包管理器，而是通过 `script` 标签引入 `Vue` 框架，这种方式的优缺点是：
 
@@ -23,8 +21,6 @@ Vue 官方提供了多种 Vue 版本，可当做独立 JS 使用：
 1. 使用全局构建版本
 2. 使用 ES 模块构建版本
 3. 使用 [petite-vue](https://github.com/vuejs/petite-vue)
-
-
 
 ## 使用全局构建版本
 
@@ -168,8 +164,6 @@ Vue.createApp({
 
 具体用法请参考[官方文档](https://github.com/vuejs/petite-vue#usage)
 
-
-
 ## 拆分模块，引入组件
 
 随着项目规模的增长，我们可能需要将某些公共模块拆分，保存到单独的文件中。当需要时，使用 `import` 语句引入。
@@ -246,14 +240,14 @@ Access to script at 'file:///<your-project-dir>/components/counter.js' from orig
 
 2. 如果本地安装了 `Node.js`，还可以在终端运行 `npx serve` 以启动一个本地 HTTP 服务器。
 
-  ```bash
-  # 进入 index.html 所在目录
-  cd demo01
-  
-  # 启动本地预览服务器
-  # NOTE：该命令首次执行时，会提示你要不要安装 serve 模块。
-  npx serve
-  ```
+```bash
+# 进入 index.html 所在目录
+cd demo01
+
+# 启动本地预览服务器
+# NOTE：该命令首次执行时，会提示你要不要安装 serve 模块。
+npx serve
+```
 
 推荐第一种方式，简单方便。
 
